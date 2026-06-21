@@ -49,3 +49,22 @@ textarea:focus {
 .btn:hover {
   background: #6c8cff;
 }
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  list-style-type: none
+}
+
+.gallery-image {
+  cursor: pointer;
+  width: 360px;
+  flex-basis: calc((100% - 1 * 24px)/4);
+}
