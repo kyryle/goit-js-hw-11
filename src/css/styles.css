@@ -1,18 +1,51 @@
-/**
-  |============================
+
+  /* |============================
   | include css partials with
   | default @import url()
-  |============================
-*/
-/* Common styles */
+  |============================ */
+
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+.form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 36px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.input {
+  border: 1px solid #808080;
+}
+
+.input:hover {
+  border: 1px solid #000;
+}
+
+.input:active {
+  border: 1px solid #4e75ff;
+}
+
+/* .input::placeholder {
+  color: #808080;
+  opacity: 1;
+} */
+.btn {
+  height: 25px;
+  background: #4e75ff;
+  color: #FFF;
+  border-radius: 4px;
+  border: none
+}
+
+.btn:hover {
+  background: #6c8cff;
+}
