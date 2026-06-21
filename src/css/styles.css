@@ -76,7 +76,6 @@ textarea:focus {
   font-size: bold;
 }
 .loader {
-  .loader {
       width: 48px;
       height: 48px;
       border: 5px solid #FFF;
@@ -96,4 +95,7 @@ textarea:focus {
         transform: rotate(360deg);
       }
     }
+.is-visible {
+  opacity: 0%;
+  pointer-events: none;
 }

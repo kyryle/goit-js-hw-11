@@ -60,9 +60,9 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-  span.classList.toggle("loader")
+  span.classList.toggle("is-visible")
 }
 
 export function hideLoader() {
-  span.classList.toggle("loader")
+  span.classList.toggle("is-visible")
 }
