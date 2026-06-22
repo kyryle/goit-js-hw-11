@@ -14,7 +14,7 @@ function imageTemplate({webformatURL, largeImageURL, tags, likes, views, comment
             <img
             class="gallery-image"
             src="${webformatURL}" 
-            alt="${tags}"
+            alt="${tags}">
           </a>
           <div class="wrapper">
           <h3 class="h3">Likes</h3>
@@ -45,6 +45,7 @@ let gallery = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
+  gallery.refresh()
 gallery.on('show.simplelightbox', function () {
 	
 });
@@ -52,7 +53,7 @@ gallery.on('show.simplelightbox', function () {
 }
 
 export function clearGallery() {
-  ulGallery.innerHTML.refresh()
+  ulGallery.innerHTML = ""
 }
 
 export function showLoader() {
