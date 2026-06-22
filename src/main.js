@@ -22,17 +22,19 @@ form.addEventListener('submit', e => {
         const result = getImagesByQuery(inputText).then(res => {
             const data = res
             
-            if (getImagesByQuery.hits.length === 0) {
+            if (res.hits.length === 0) {
             iziToast.show({
                 message: "Sorry, there are no images matching your search query. Please try again!"
             })
+                return
         }
-                        const gallery = createGallery(data)
+                        const gallery = createGallery(data.hits)
 
         }).catch(err => {
             console.log(err);
             iziToast.show({
-                title: 'error'
+                title: 'error',
+                message: "an error accured while trying to get images"
             })
             return
         }).finally(() => {

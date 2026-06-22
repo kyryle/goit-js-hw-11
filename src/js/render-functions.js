@@ -10,13 +10,14 @@ const span = document.querySelector("span")
 export function createGallery(images) {
 function imageTemplate({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) {
   return `
-          <li>
+          <li class="li">
           <a class="gallery-link" href="${largeImageURL}">
             <img
             class="gallery-image"
             src="${webformatURL}" 
             alt="${tags}">
           </a>
+          <div class="firstWrapper">
           <div class="wrapper">
           <h3 class="h3">Likes</h3>
           <p>${likes}</p>
@@ -32,6 +33,7 @@ function imageTemplate({webformatURL, largeImageURL, tags, likes, views, comment
           <div class="wrapper">
           <h3 class="h3">downloads</h3>
           <p>${downloads}</p>
+          </div>
           </div>
         </li>`
 }
@@ -60,9 +62,9 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-  span.classList.add("is-visible")
+  span.classList.remove("is-invisible")
 }
 
 export function hideLoader() {
-  span.classList.remove("is-visible")
+  span.classList.add("is-invisible")
 }

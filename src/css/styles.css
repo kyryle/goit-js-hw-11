@@ -65,8 +65,20 @@ textarea:focus {
 
 .gallery-image {
   cursor: pointer;
-  width: 360px;
   flex-basis: calc((100% - 1 * 24px)/4);
+  width: 420px;
+  height: 300px;
+}
+.li {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 420px;
+}
+.firstWrapper {
+  display: flex;
+  gap: 28px;
+  margin-left: 20px;
+  margin-right: 25px;
 }
 .wrapper {
   display: flex;
@@ -95,7 +107,7 @@ textarea:focus {
         transform: rotate(360deg);
       }
     }
-.is-visible {
+.is-invisible {
   opacity: 0%;
   pointer-events: none;
 }
