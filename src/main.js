@@ -21,7 +21,6 @@ form.addEventListener('submit', e => {
         showLoader()
         const result = getImagesByQuery(inputText).then(res => {
             const data = res
-            console.log(data);
             
             if (getImagesByQuery.hits.length === 0) {
             iziToast.show({
