@@ -13,7 +13,6 @@ export async function getImagesByQuery(query) {
     })
     const url = `${baseUrl}${endPoint}?${params}`;
     const response = await axios.get(url);
-    return response
-    console.log(response.data);
+    return response.data
     
 }

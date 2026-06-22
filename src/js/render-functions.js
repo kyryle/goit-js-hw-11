@@ -10,7 +10,7 @@ export function createGallery(images) {
 function imageTemplate({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) {
   return `
           <li>
-          <a class="gallery-link" href="${LargeImageURL}">
+          <a class="gallery-link" href="${largeImageURL}">
             <img
             class="gallery-image"
             src="${webformatURL}" 
@@ -52,17 +52,13 @@ gallery.on('show.simplelightbox', function () {
 }
 
 export function clearGallery() {
-  let gallery = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-});
-  gallery.refresh()
+  ulGallery.innerHTML.refresh()
 }
 
 export function showLoader() {
-  span.classList.toggle("is-visible")
+  span.classList.add("is-visible")
 }
 
 export function hideLoader() {
-  span.classList.toggle("is-visible")
+  span.classList.remove("is-visible")
 }

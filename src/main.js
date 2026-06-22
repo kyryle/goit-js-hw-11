@@ -18,14 +18,19 @@ form.addEventListener('submit', e => {
     console.log(inputText);
     if (inputText.trim() === "") {
         iziToast.show({
-    title: 'hey',
-    message: 'fill in empty field'
-});
+            title: 'hey',
+            message: 'fill in empty field'
+        });
     } else {
         clearGallery()
         showLoader()
-        const result = getImagesByQuery(inputText).catch(err => {
-            console.log(err);
+        const result = getImagesByQuery(inputText).then(res => {
+                        return res
+        }).catch(err => {
+            iziToast.show({
+                title: 'error',
+                message: err
+            })
         }) 
             console.log(result);
         const gallery = createGallery(result)
@@ -35,6 +40,6 @@ form.addEventListener('submit', e => {
                 message: "Sorry, there are no images matching your search query. Please try again!"
             })
         }
-        hideLoader()
     }
+        hideLoader()
 })
