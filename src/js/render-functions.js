@@ -2,6 +2,7 @@ import SimpleLightbox from "simplelightbox";
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const ulGallery = document.querySelector('ul.gallery')
+let gallery = false
 const span = document.querySelector("span")
 
 
@@ -40,14 +41,17 @@ function imageTemplate({webformatURL, largeImageURL, tags, likes, views, comment
 
 ulGallery.innerHTML = imagesTemplate(images)
 
-let gallery = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-});
-  gallery.refresh()
+  if (gallery === false) {
+    gallery = new SimpleLightbox('.gallery a', {
+      captionsData: 'alt',
+      captionDelay: 250,
+    })
+  } else {
+  gallery.refresh()}
 gallery.on('show.simplelightbox', function () {
 	
 });
+  
     
 }
 

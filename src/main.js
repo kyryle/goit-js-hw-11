@@ -11,7 +11,6 @@ form.addEventListener('submit', e => {
     e.preventDefault();
     const data = new FormData(form)
     let inputText = data.get('search-text')
-    console.log(inputText);
     if (inputText.trim() === "") {
         iziToast.show({
             title: 'hey',
@@ -21,8 +20,10 @@ form.addEventListener('submit', e => {
         clearGallery()
         showLoader()
         const result = getImagesByQuery(inputText).then(res => {
-            const data = result.data
-            if (Object.values(getImagesByQuery(inputText)).length === 0) {
+            const data = res
+            console.log(data);
+            
+            if (getImagesByQuery.hits.length === 0) {
             iziToast.show({
                 message: "Sorry, there are no images matching your search query. Please try again!"
             })
@@ -31,8 +32,6 @@ form.addEventListener('submit', e => {
 
         }).catch(err => {
             console.log(err);
-            
-            hideLoader()
             iziToast.show({
                 title: 'error'
             })
@@ -40,10 +39,5 @@ form.addEventListener('submit', e => {
         }).finally(() => {
             hideLoader()
         }) 
-        // if (Object.values(getImagesByQuery(inputText)).length === 0) {
-        //     iziToast.show({
-        //         message: "Sorry, there are no images matching your search query. Please try again!"
-        //     })
-        // }
     }
 })
