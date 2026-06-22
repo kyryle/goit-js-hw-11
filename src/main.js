@@ -21,21 +21,29 @@ form.addEventListener('submit', e => {
         clearGallery()
         showLoader()
         const result = getImagesByQuery(inputText).then(res => {
-                        hideLoader()
-                        const gallery = createGallery(res)
-
-        }).catch(err => {
-            hideLoader()
-            iziToast.show({
-                title: 'error',
-                message: err
-            })
-            return
-        })
-        if (Object.values(getImagesByQuery).length === 0) {
+            const data = result.data
+            if (Object.values(getImagesByQuery(inputText)).length === 0) {
             iziToast.show({
                 message: "Sorry, there are no images matching your search query. Please try again!"
             })
         }
+                        const gallery = createGallery(data)
+
+        }).catch(err => {
+            console.log(err);
+            
+            hideLoader()
+            iziToast.show({
+                title: 'error'
+            })
+            return
+        }).finally(() => {
+            hideLoader()
+        }) 
+        // if (Object.values(getImagesByQuery(inputText)).length === 0) {
+        //     iziToast.show({
+        //         message: "Sorry, there are no images matching your search query. Please try again!"
+        //     })
+        // }
     }
 })

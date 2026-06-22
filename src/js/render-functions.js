@@ -35,7 +35,6 @@ function imageTemplate({webformatURL, largeImageURL, tags, likes, views, comment
         </li>`
 }
   function imagesTemplate(images) {
-  images = Object.values(images)
   return images.map(imageTemplate).join('')
 }
 
